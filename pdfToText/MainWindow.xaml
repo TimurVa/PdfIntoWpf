@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pdfToText"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Parse" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="1"
+        <StackPanel Grid.Column="1" Margin="10">
+        <Button 
                 Command="{Binding OfdCommand}"
+                Style="{StaticResource btn-default}"
                 Content="ChoosePdf"/>
-        <StackPanel>
+        </StackPanel>
+        <StackPanel Margin="10">
             <Grid x:Name="Canvas"/>
-            <TextBox Grid.Column="0" Text="{Binding Title}"/>
+            <TextBox Grid.Column="0"
+                     FontSize="16"
+                     Style="{StaticResource TextBoxPlaceholder}"
+                     FontFamily="{StaticResource LatoThin}"
+                     Text="{Binding Title}"/>
         </StackPanel>
     </Grid>
 </Window>

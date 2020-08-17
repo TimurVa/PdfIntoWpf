@@ -2093,26 +2093,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Е\\.nuget\\packages\\": {}
+    "D:\\Users\\TValiev\\.nuget\\packages\\": {},
+    "D:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\repos\\pdfToText\\pdfToText\\pdfToText.csproj",
+      "projectUniqueName": "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\pdfToText.csproj",
       "projectName": "pdfToText",
-      "projectPath": "F:\\repos\\pdfToText\\pdfToText\\pdfToText.csproj",
-      "packagesPath": "C:\\Users\\Е\\.nuget\\packages\\",
-      "outputPath": "F:\\repos\\pdfToText\\pdfToText\\obj\\",
+      "projectPath": "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\pdfToText.csproj",
+      "packagesPath": "D:\\Users\\TValiev\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Е\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "D:\\Users\\TValiev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "D:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2156,7 +2160,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
       }
     }
   },

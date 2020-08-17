@@ -67,8 +67,12 @@ namespace pdfToText.ViewModels
             f.OpenPdf(path);
 
             string final = f.ToText();
+            string header = @"[A-Z]+\s[A-Z]+";
             string pattern = @"Length:\s\d+.\d+\s\w+\s\(\d+'\s\d""\)|Beam:\s\d+.\d+\s\w+\s\(\d+'\s\d""\)|Draft:\s\d.\d\s\w+\s\(\d'\s\d+""\)|Number\sof\sGuests:\s\d+|Number\sof\sCrew:\s\d|Built:\s\d+|Refit:\s\d+|Builder:\s\w+\s\w+\s\w+|Naval\sArchitect:\s\w+\s\w+\s\w+|Flag:\s\w+|Hull\sConstruction:\s\w+|Hull\sConfiguration:\s\w+";
             Regex regex = new Regex(pattern);
+            Regex headerR = new Regex(header);
+
+            Title += "Yacht's name: " + headerR.Match(final) + System.Environment.NewLine;
 
             int i = 0;
 
@@ -101,34 +105,34 @@ namespace pdfToText.ViewModels
                 //ExtractTextFromPdf(openFileDialog.FileName);
                 DoStuff(openFileDialog.FileName);
 
-                string html = GetHtmlCode();
-                List<string> urls = GetUrls(html);
-                //var rnd = new Random();
+                //string html = GetHtmlCode();
+                //List<string> urls = GetUrls(html);
+                ////var rnd = new Random();
 
-                //int randomUrl = rnd.Next(0, urls.Count + 1);
+                ////int randomUrl = rnd.Next(0, urls.Count + 1);
 
-                string luckyUrl = urls[0];
-                byte[] image = GetImage(luckyUrl);
+                //string luckyUrl = urls[0];
+                //byte[] image = GetImage(luckyUrl);
 
 
-                using (var ms = new MemoryStream(image))
-                {
-                    //_mainWindow.Canvas.Children.Add(Image.FromStream(ms));
+                //using (var ms = new MemoryStream(image))
+                //{
+                //    //_mainWindow.Canvas.Children.Add(Image.FromStream(ms));
 
-                    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    ms.Position = 0;
+                //    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                //    ms.Position = 0;
 
-                    var bi = new BitmapImage();
-                    bi.BeginInit();
-                    bi.CacheOption = BitmapCacheOption.OnLoad;
-                    bi.StreamSource = ms;
-                    bi.EndInit();
+                //    var bi = new BitmapImage();
+                //    bi.BeginInit();
+                //    bi.CacheOption = BitmapCacheOption.OnLoad;
+                //    bi.StreamSource = ms;
+                //    bi.EndInit();
 
-                    System.Windows.Controls.Image image1 = new System.Windows.Controls.Image();
-                    image1.Source = bi;
+                //    System.Windows.Controls.Image image1 = new System.Windows.Controls.Image();
+                //    image1.Source = bi;
 
-                    _mainWindow.Canvas.Children.Add(image1);
-                }
+                //    _mainWindow.Canvas.Children.Add(image1);
+                //}
             }
         }
 
