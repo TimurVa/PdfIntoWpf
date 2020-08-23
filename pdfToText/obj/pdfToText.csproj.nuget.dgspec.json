@@ -1,30 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\pdfToText.csproj": {}
+    "F:\\repos\\pdf\\PdfIntoWpf\\pdfToText\\pdfToText.csproj": {}
   },
   "projects": {
-    "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\pdfToText.csproj": {
+    "F:\\repos\\pdf\\PdfIntoWpf\\pdfToText\\pdfToText.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\pdfToText.csproj",
+        "projectUniqueName": "F:\\repos\\pdf\\PdfIntoWpf\\pdfToText\\pdfToText.csproj",
         "projectName": "pdfToText",
-        "projectPath": "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\pdfToText.csproj",
-        "packagesPath": "D:\\Users\\TValiev\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\TValiev\\source\\repos\\ser\\PdfIntoWpf\\pdfToText\\obj\\",
+        "projectPath": "F:\\repos\\pdf\\PdfIntoWpf\\pdfToText\\pdfToText.csproj",
+        "packagesPath": "C:\\Users\\Е\\.nuget\\packages\\",
+        "outputPath": "F:\\repos\\pdf\\PdfIntoWpf\\pdfToText\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "D:\\Users\\TValiev\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "D:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Е\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "D:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Spire.Doc": {
+              "target": "Package",
+              "version": "[8.8.2, )"
+            },
             "iTextSharp": {
               "target": "Package",
               "version": "[5.5.13.1, )"
@@ -68,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

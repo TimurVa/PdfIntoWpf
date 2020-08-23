@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Users\TValiev\source\repos\ser\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\
+F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\
 pdfToText
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-D:\Users\TValiev\source\repos\ser\PdfIntoWpf\pdfToText\App.xaml
-2118311915
+F:\repos\pdf\PdfIntoWpf\pdfToText\App.xaml
+3-717770889
 
-8946158551
-1961499821809
-MainWindow.xaml;Resources\Styles.xaml;
+12-1758608303
+199-38553986
+MainWindow.xaml;Resources\ScrollBarStyle.xaml;Resources\Styles.xaml;
 
-True
+False
 

@@ -15,15 +15,20 @@
         <Button 
                 Command="{Binding OfdCommand}"
                 Style="{StaticResource btn-default}"
-                Content="ChoosePdf"/>
+                Content="Choose file"/>
         </StackPanel>
-        <StackPanel Margin="10">
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+            <StackPanel Margin="10">
             <Grid x:Name="Canvas"/>
             <TextBox Grid.Column="0"
                      FontSize="16"
+                     TextAlignment="Justify"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
                      Style="{StaticResource TextBoxPlaceholder}"
                      FontFamily="{StaticResource LatoThin}"
                      Text="{Binding Title}"/>
         </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

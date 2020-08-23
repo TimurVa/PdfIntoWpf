@@ -6,8 +6,7 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Windows.Controls;
+using pdfToText.Logic;
 
 namespace pdfToText.ViewModels
 {
@@ -29,7 +28,6 @@ namespace pdfToText.ViewModels
         private string result;
 
         System.Drawing.Bitmap bmp;
-
 
         private MainWindow _mainWindow;
         public MainViewModel(MainWindow mainWindow)
@@ -98,12 +96,28 @@ namespace pdfToText.ViewModels
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = false;
-            openFileDialog.Filter = "Text files (*.pdf)|*.pdf";
+            openFileDialog.Filter = "Pdf file (*.pdf)|*.pdf|Word file (.docx , .doc)|*.docx;*.doc";
+
 
             if (openFileDialog.ShowDialog() == true)
             {
-                //ExtractTextFromPdf(openFileDialog.FileName);
-                DoStuff(openFileDialog.FileName);
+
+                string extension = System.IO.Path.GetExtension(openFileDialog.FileName);
+
+                // pdf
+                if (extension == ".pdf")
+                {
+                    PdfConverter pdfConverter = new PdfConverter();
+                    pdfConverter.ConvertFromPdfToText(openFileDialog.FileName, this);
+                    //DoStuff(openFileDialog.FileName);
+                }
+                // word
+                else
+                {
+                    WordConverter wordConverter = new WordConverter();
+                    wordConverter.ConvertFromWordToText(openFileDialog.FileName, this);
+
+                }
 
                 //string html = GetHtmlCode();
                 //List<string> urls = GetUrls(html);
