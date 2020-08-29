@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "o6G3RZai5dJAAbxwe/gBLsmbs2+mU+Mt+ppn33hoPPrkbiiCuBnEl2UHZ0bziuko8Xm1ARZsWImQt0i1onxV6Q==",
+  "dgSpecHash": "N7jdeMw13nUPUrSObqj1bgIZ2cb0WAb4jpZR65Rnyg4l1I2dnhwi+Z7wHvxCq/z9C0Jv3ilaB6ZDqQ6rJLAaGQ==",
   "success": true,
   "projectFilePath": "F:\\repos\\pdf\\PdfIntoWpf\\pdfToText\\pdfToText.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Е\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Е\\.nuget\\packages\\ninject\\3.3.4\\ninject.3.3.4.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\sautinsoft.pdffocus\\7.7.7.24\\sautinsoft.pdffocus.7.7.7.24.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\spire.doc\\8.8.2\\spire.doc.8.8.2.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
@@ -19,6 +20,8 @@
     "C:\\Users\\Е\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\system.io.packaging\\4.4.0\\system.io.packaging.4.4.0.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
+    "C:\\Users\\Е\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "C:\\Users\\Е\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\Е\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",

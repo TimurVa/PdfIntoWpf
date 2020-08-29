@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Ninject": {
+              "target": "Package",
+              "version": "[3.3.4, )"
+            },
             "Spire.Doc": {
               "target": "Package",
               "version": "[8.8.2, )"

@@ -10,6 +10,9 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\cen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\ScrollBarStyle.xaml">
       <SubType>Designer</SubType>
     </Page>

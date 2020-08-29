@@ -7,6 +7,9 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 using pdfToText.Logic;
+using System.Windows;
+using pdfToText.Interfaces;
+using System.Linq;
 
 namespace pdfToText.ViewModels
 {
@@ -24,80 +27,30 @@ namespace pdfToText.ViewModels
                 OnPropertyChanged();
             }
         }
+        public string QueryString { get; set; }
 
-        private string result;
-
+        private IPdfConverter _pdfConverter;
+        private IWordConverter _wordConverter;
         System.Drawing.Bitmap bmp;
 
         private MainWindow _mainWindow;
-        public MainViewModel(MainWindow mainWindow)
+        public MainViewModel(MainWindow mainWindow, IPdfConverter pdfConverter, IWordConverter wordConverter)
         {
             Title = string.Empty;
+            _pdfConverter = pdfConverter;
+            _wordConverter = wordConverter;
         }
 
         private ICommand _ofdCommand;
         public ICommand OfdCommand => _ofdCommand ?? (_ofdCommand = new RelayCommand(OfdCommand_Executed));
 
-        //private void ExtractTextFromPdf(string path)
-        //{
-        //    //using (PdfReader reader = new PdfReader(path))
-        //    //{
-        //    //    StringBuilder text = new StringBuilder();
-        //    //    ITextExtractionStrategy Strategy = new iTextSharp.text.pdf.parser.LocationTextExtractionStrategy();
 
-        //    //    for (int i = 1; i <= reader.NumberOfPages; i++)
-        //    //    {
-        //    //        string page = "";
-
-        //    //        page = PdfTextExtractor.GetTextFromPage(reader, i, Strategy);
-        //    //        string[] lines = page.Split('\n');
-        //    //        foreach (string line in lines)
-        //    //        {
-        //    //            Title += line;
-        //    //        }
-        //    //    }
-        //    //}
-        //}
-
-        private void DoStuff(string path)
-        {
-            SautinSoft.PdfFocus f = new SautinSoft.PdfFocus();
-            f.OpenPdf(path);
-
-            string final = f.ToText();
-            string header = @"[A-Z]+\s[A-Z]+";
-            string pattern = @"Length:\s\d+.\d+\s\w+\s\(\d+'\s\d""\)|Beam:\s\d+.\d+\s\w+\s\(\d+'\s\d""\)|Draft:\s\d.\d\s\w+\s\(\d'\s\d+""\)|Number\sof\sGuests:\s\d+|Number\sof\sCrew:\s\d|Built:\s\d+|Refit:\s\d+|Builder:\s\w+\s\w+\s\w+|Naval\sArchitect:\s\w+\s\w+\s\w+|Flag:\s\w+|Hull\sConstruction:\s\w+|Hull\sConfiguration:\s\w+";
-            Regex regex = new Regex(pattern);
-            Regex headerR = new Regex(header);
-
-            Title += "Yacht's name: " + headerR.Match(final) + System.Environment.NewLine;
-
-            int i = 0;
-
-            foreach (Match match in regex.Matches(final))
-            {
-                Title += match.Value + System.Environment.NewLine;
-
-                i++;
-
-                if (i > 9)
-                {
-                    break;
-                }
-
-                //if (i == 1)
-                //{
-                //    _topics.Add(Title);
-                //}
-            }
-        }
 
         private void OfdCommand_Executed(object obj)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = false;
             openFileDialog.Filter = "Pdf file (*.pdf)|*.pdf|Word file (.docx , .doc)|*.docx;*.doc";
-
 
             if (openFileDialog.ShowDialog() == true)
             {
@@ -107,49 +60,62 @@ namespace pdfToText.ViewModels
                 // pdf
                 if (extension == ".pdf")
                 {
-                    PdfConverter pdfConverter = new PdfConverter();
-                    pdfConverter.ConvertFromPdfToText(openFileDialog.FileName, this);
+                    _pdfConverter.ConvertFromPdfToText(openFileDialog.FileName, this);
                     //DoStuff(openFileDialog.FileName);
                 }
                 // word
                 else
                 {
-                    WordConverter wordConverter = new WordConverter();
-                    wordConverter.ConvertFromWordToText(openFileDialog.FileName, this);
+                    _wordConverter.ConvertFromWordToText(openFileDialog.FileName, this);
 
                 }
-
-                //string html = GetHtmlCode();
-                //List<string> urls = GetUrls(html);
-                ////var rnd = new Random();
-
-                ////int randomUrl = rnd.Next(0, urls.Count + 1);
-
-                //string luckyUrl = urls[0];
-                //byte[] image = GetImage(luckyUrl);
-
-
-                //using (var ms = new MemoryStream(image))
-                //{
-                //    //_mainWindow.Canvas.Children.Add(Image.FromStream(ms));
-
-                //    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                //    ms.Position = 0;
-
-                //    var bi = new BitmapImage();
-                //    bi.BeginInit();
-                //    bi.CacheOption = BitmapCacheOption.OnLoad;
-                //    bi.StreamSource = ms;
-                //    bi.EndInit();
-
-                //    System.Windows.Controls.Image image1 = new System.Windows.Controls.Image();
-                //    image1.Source = bi;
-
-                //    _mainWindow.Canvas.Children.Add(image1);
-                //}
             }
         }
 
+        //"Pdf file (*.pdf)|*.pdf|Word file (.docx , .doc)|*.docx;*.doc"
+        public void DropPdf(object s, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                foreach (var file in files)
+                {
+                    string extension = System.IO.Path.GetExtension(file);
+
+                    try
+                    {
+                        // pdf
+                        if (extension == ".pdf")
+                        {
+                            _pdfConverter.ConvertFromPdfToText(file, this);
+                            //DoStuff(openFileDialog.FileName);
+                        }
+                        // word
+                        else
+                        {
+                            _wordConverter.ConvertFromWordToText(file, this);
+
+                        }
+                    } 
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show($"One or more files has different format. Accepts only .doc/x or .pdf \nException { exception.ToString() }");
+                    }
+                }
+            }
+        }
+
+        public void SearchText()
+        {
+            int index = 0;
+            while (index < Title.LastIndexOf(QueryString))
+            {
+                
+            }
+        }
+
+        #region Try parce image
         private string GetHtmlCode()
         {
             var rnd = new Random();
@@ -247,6 +213,59 @@ namespace pdfToText.ViewModels
             return null;
         }
 
+        //private void ExtractTextFromPdf(string path)
+        //{
+        //    //using (PdfReader reader = new PdfReader(path))
+        //    //{
+        //    //    StringBuilder text = new StringBuilder();
+        //    //    ITextExtractionStrategy Strategy = new iTextSharp.text.pdf.parser.LocationTextExtractionStrategy();
 
+        //    //    for (int i = 1; i <= reader.NumberOfPages; i++)
+        //    //    {
+        //    //        string page = "";
+
+        //    //        page = PdfTextExtractor.GetTextFromPage(reader, i, Strategy);
+        //    //        string[] lines = page.Split('\n');
+        //    //        foreach (string line in lines)
+        //    //        {
+        //    //            Title += line;
+        //    //        }
+        //    //    }
+        //    //}
+        //}
+
+        private void DoStuff(string path)
+        {
+            SautinSoft.PdfFocus f = new SautinSoft.PdfFocus();
+            f.OpenPdf(path);
+
+            string final = f.ToText();
+            string header = @"[A-Z]+\s[A-Z]+";
+            string pattern = @"Length:\s\d+.\d+\s\w+\s\(\d+'\s\d""\)|Beam:\s\d+.\d+\s\w+\s\(\d+'\s\d""\)|Draft:\s\d.\d\s\w+\s\(\d'\s\d+""\)|Number\sof\sGuests:\s\d+|Number\sof\sCrew:\s\d|Built:\s\d+|Refit:\s\d+|Builder:\s\w+\s\w+\s\w+|Naval\sArchitect:\s\w+\s\w+\s\w+|Flag:\s\w+|Hull\sConstruction:\s\w+|Hull\sConfiguration:\s\w+";
+            Regex regex = new Regex(pattern);
+            Regex headerR = new Regex(header);
+
+            Title += "Yacht's name: " + headerR.Match(final) + System.Environment.NewLine;
+
+            int i = 0;
+
+            foreach (Match match in regex.Matches(final))
+            {
+                Title += match.Value + System.Environment.NewLine;
+
+                i++;
+
+                if (i > 9)
+                {
+                    break;
+                }
+
+                //if (i == 1)
+                //{
+                //    _topics.Add(Title);
+                //}
+            }
+        }
+        #endregion
     }
 }

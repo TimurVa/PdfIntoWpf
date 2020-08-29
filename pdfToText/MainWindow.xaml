@@ -12,23 +12,35 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" Margin="10">
-        <Button 
+            <Button 
                 Command="{Binding OfdCommand}"
                 Style="{StaticResource btn-default}"
                 Content="Choose file"/>
+            <!--<TextBox Style="{StaticResource TextBoxPlaceholder}"
+                     TextChanged="TextBox_TextChanged"
+                     Text="{Binding QueryString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Tag="Find"/>-->
         </StackPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Visible">
-            <StackPanel Margin="10">
-            <Grid x:Name="Canvas"/>
-            <TextBox Grid.Column="0"
+        <ScrollViewer VerticalScrollBarVisibility="Visible">
+            <StackPanel Margin="10" Background="Transparent" 
+                     PreviewDragOver="TextBox_PreviewDragOver"
+                     PreviewDrop="TextBox_Drop" 
+                     AllowDrop="True" Drop="TextBox_Drop">
+                <Canvas x:Name="Canvas"/>
+                <TextBox Grid.Column="0"
                      FontSize="16"
+                     MinHeight="300"
+                     AllowDrop="True"
+                     Drop="TextBox_Drop"
+                     PreviewDrop="TextBox_Drop"
+                     PreviewDragOver="TextBox_PreviewDragOver"
                      TextAlignment="Justify"
                      ScrollViewer.VerticalScrollBarVisibility="Visible"
                      ScrollViewer.HorizontalScrollBarVisibility="Visible"
                      Style="{StaticResource TextBoxPlaceholder}"
                      FontFamily="{StaticResource LatoThin}"
-                     Text="{Binding Title}"/>
-        </StackPanel>
+                     Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Window>

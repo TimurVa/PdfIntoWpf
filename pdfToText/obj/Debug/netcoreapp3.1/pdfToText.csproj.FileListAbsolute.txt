@@ -66,7 +66,6 @@ F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\Resources\Styles.baml
 F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.g.resources
 F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.AssemblyInfoInputs.cache
 F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.AssemblyInfo.cs
-F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.csproj.CoreCompileInputs.cache
 F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.csproj.CopyComplete
 F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.dll
 F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.pdb
@@ -75,3 +74,8 @@ F:\repos\pdf\PdfIntoWpf\pdfToText\bin\Debug\netcoreapp3.1\Spire.Doc.dll
 F:\repos\pdf\PdfIntoWpf\pdfToText\bin\Debug\netcoreapp3.1\Spire.License.dll
 F:\repos\pdf\PdfIntoWpf\pdfToText\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
 F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\Resources\ScrollBarStyle.baml
+F:\repos\pdf\PdfIntoWpf\pdfToText\bin\Debug\netcoreapp3.1\Resources\Images\convert.png
+F:\repos\pdf\PdfIntoWpf\pdfToText\bin\Debug\netcoreapp3.1\Resources\Images\ph.jpg
+F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\Resources\cen.baml
+F:\repos\pdf\PdfIntoWpf\pdfToText\bin\Debug\netcoreapp3.1\Ninject.dll
+F:\repos\pdf\PdfIntoWpf\pdfToText\obj\Debug\netcoreapp3.1\pdfToText.csproj.CoreCompileInputs.cache
